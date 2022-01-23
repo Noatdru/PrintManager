@@ -19,8 +19,5 @@ namespace PrintManager.Models
             throw new NotImplementedException();
         }
 
-        public bool CanPrint => true;
-        public bool CanScan => true;
-        public bool CanCopy => true;
     }
 }

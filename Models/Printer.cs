@@ -8,8 +8,6 @@ namespace PrintManager.Models
         {
             throw new NotImplementedException();
         }
-        public bool CanPrint => true;
-
 
     }
 }
