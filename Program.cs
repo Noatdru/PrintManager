@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using PrintManager.DbContexts;
+using PrintManager.Interfaces;
+using PrintManager.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -17,6 +19,7 @@ services.AddDbContext<AppIdentityDbContext>(options =>
 services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppIdentityDbContext>()
     .AddDefaultTokenProviders();
+services.AddScoped<IPrinterRepository, PrinterRepository>();
 
 var app = builder.Build();
 
