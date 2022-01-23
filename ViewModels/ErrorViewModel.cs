@@ -1,4 +1,4 @@
-namespace PrintManager.Models;
+namespace PrintManager.ViewModels;
 
 public class ErrorViewModel
 {

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using PrintManager.Models;
+using PrintManager.ViewModels;
 
 namespace PrintManager.Controllers;
 
