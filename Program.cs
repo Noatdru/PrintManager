@@ -8,7 +8,10 @@ var configuration = builder.Configuration;
 var services = builder.Services;
 services.AddMvc().AddSessionStateTempDataProvider();
 services.AddSession();
+services.AddMemoryCache();
 services.AddControllersWithViews();
+services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(configuration.GetConnectionString("Application")));
 services.AddDbContext<AppIdentityDbContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("Identity")));
 services.AddIdentity<IdentityUser, IdentityRole>()
