@@ -1,7 +1,19 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using PrintManager.Models;
 
+var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+var services = builder.Services;
+services.AddMvc().AddSessionStateTempDataProvider();
+services.AddSession();
+services.AddControllersWithViews();
+services.AddDbContext<AppIdentityDbContext>(options =>
+    options.UseSqlServer(configuration.GetConnectionString("Identity")));
+services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AppIdentityDbContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 
@@ -17,11 +29,13 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+PrintManager.DataSeed.Identity.EnsurePopulated(app);
 
 app.Run();
