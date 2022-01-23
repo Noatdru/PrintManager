@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace PrintManager.Models
+namespace PrintManager.DbContexts
 {
     public class AppIdentityDbContext : IdentityDbContext<IdentityUser>
     {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PrintManager.Models;
+using PrintManager.DbContexts;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;

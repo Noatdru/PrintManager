@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PrintManager.Models;
+using PrintManager.DbContexts;
 
 #nullable disable
 
 namespace PrintManager.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20220123141822_Initial")]
+    [Migration("20220123183342_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
