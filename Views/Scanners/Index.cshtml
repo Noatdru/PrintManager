@@ -1,6 +1,6 @@
 ﻿@model IList<Scanner>
 @{
-    ViewData["Title"] = "Printers";
+    ViewData["Title"] = "Scanners";
 }
 @if (User.Identity.IsAuthenticated)
 {
@@ -17,16 +17,16 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var printer in Model)
+        @foreach (var scanner in Model)
         {
             <tr>
-                <th scope="row">@printer.Id</th>
-                <td>@printer.Name</td>
-                <td>@printer.Location</td>
-                <td>@printer.Description</td>
+                <th scope="row">@scanner.Id</th>
+                <td>@scanner.Name</td>
+                <td>@scanner.Location</td>
+                <td>@scanner.Description</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = printer.Id }, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Delete", "Delete", new { id = printer.Id }, new { @class = "btn btn-danger" })
+                    @Html.ActionLink("Edit", "Edit", new { id = scanner.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = scanner.Id }, new { @class = "btn btn-danger" })
                 </td>
             </tr>
         }

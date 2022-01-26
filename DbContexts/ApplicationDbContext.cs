@@ -13,6 +13,8 @@ namespace PrintManager.DbContexts
         public DbSet<Printer> Printers { get; set; }
         public DbSet<Copier> Copiers { get; set; }
         public DbSet<Scanner> Scanners { get; set; }
+        public DbSet<Document> Documents { get; set; }
+        public DbSet<PrintQueueElement> PrintQueueElements { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Device>()

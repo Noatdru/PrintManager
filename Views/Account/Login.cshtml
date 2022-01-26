@@ -1,7 +1,7 @@
 @model PrintManager.ViewModels.LoginViewModel
 @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
 {
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary(true,"", new { @class = "text-danger" })
     <div>
     @Html.LabelFor(model => model.Name)
     @Html.TextBoxFor(model => model.Name)
