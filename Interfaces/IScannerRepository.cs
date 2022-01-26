@@ -1,7 +1,11 @@
+using PrintManager.Models;
+
 namespace PrintManager.Interfaces
 {
     public interface IScannerRepository
     {
-        IQueryable<IScanner> GetAll();
+        IQueryable<Scanner> GetAll();
+        bool Save(Scanner scanner);
+        void Delete(Scanner scanner);
     }
 }

@@ -1,0 +1,34 @@
+﻿@model IList<Printer>
+@{
+    ViewData["Title"] = "Printers";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Create New Printer", "Create", "Printers", null, new { @class = "btn btn-primary" })
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Localization</th>
+            <th scope="col">Description</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var printer in Model)
+        {
+            <tr>
+                <th scope="row">@printer.Id</th>
+                <td>@printer.Name</td>
+                <td>@printer.Location</td>
+                <td>@printer.Description</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = printer.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = printer.Id }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

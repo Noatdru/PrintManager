@@ -1,0 +1,17 @@
+@model PrintManager.ViewModels.PrinterViewModel
+@using (Html.BeginForm("AddEdit", "Printers", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    @Html.LabelFor(model => model.Description)
+    @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    @Html.LabelFor(model => model.Location)
+    @Html.TextBoxFor(model => model.Location, new { @class = "form-control" })
+    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+    <input type="submit" value="Save" />
+}

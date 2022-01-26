@@ -20,6 +20,7 @@ services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<AppIdentityDbContext>()
     .AddDefaultTokenProviders();
 services.AddScoped<IPrinterRepository, PrinterRepository>();
+services.AddScoped<IScannerRepository, ScannerRepository>();
 
 var app = builder.Build();
 

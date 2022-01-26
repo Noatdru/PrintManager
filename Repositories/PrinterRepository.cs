@@ -1,5 +1,6 @@
 using PrintManager.DbContexts;
 using PrintManager.Interfaces;
+using PrintManager.Models;
 
 namespace PrintManager.Repositories
 {
@@ -12,12 +13,34 @@ namespace PrintManager.Repositories
             _context = context;
         }
 
-        public IQueryable<IPrinter> GetAll()
+        public void Delete(Printer printer)
         {
-            var printers = _context.Printers.ToList<IPrinter>();
-            var copiers = _context.Copiers.ToList<IPrinter>();
-            return printers.Union(copiers).AsQueryable();
+            _context.Printers.Remove(printer);
+            _context.SaveChanges();
         }
 
+        public IQueryable<Printer> GetAll()
+        {
+            return _context.Printers;
+        }
+
+        public bool Save(Printer printer)
+        {
+            if (printer.Id == 0)
+            {
+                _context.Printers.Add(printer);
+            }
+            else
+            {
+                var dbEntry = _context.Printers.FirstOrDefault(p => p.Id == printer.Id);
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = printer.Name;
+                    dbEntry.Location = printer.Location;
+                    dbEntry.Description = printer.Description;
+                }
+            }
+            return _context.SaveChanges() > 0;
+        }
     }
 }
