@@ -7,5 +7,6 @@ namespace PrintManager.Interfaces
         IQueryable<Printer> GetAll();
         bool Save(Printer printer);
         void Delete(Printer printer);
+        IPrinter? GetById(int printerId);
     }
 }

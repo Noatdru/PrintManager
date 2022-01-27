@@ -24,6 +24,11 @@ namespace PrintManager.Repositories
             return _context.Printers;
         }
 
+        public IPrinter GetById(int printerId)
+        {
+            return _context.Printers.Find(printerId);
+        }
+
         public bool Save(Printer printer)
         {
             if (printer.Id == 0)

@@ -4,9 +4,9 @@ namespace PrintManager.Models
 {
     public class Printer : Device, IPrinter
     {
-        public Task PrintAsync(Document document)
+        public async Task PrintAsync(Document document)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Printing document {document.Uri}");
         }
 
     }

@@ -7,5 +7,6 @@ namespace PrintManager.Interfaces
         IQueryable<Scanner> GetAll();
         bool Save(Scanner scanner);
         void Delete(Scanner scanner);
+        Scanner GetById(int scannerId);
     }
 }

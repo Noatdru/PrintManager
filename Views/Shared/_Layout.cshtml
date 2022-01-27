@@ -29,6 +29,13 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Scanners"
                                 asp-action="Index">Scanners</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Documents"
+                                asp-action="Index">Documents</a>
+                        </li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="PrintQueue" asp-action="Index">Print
+                            Queue</a>
+                        </li>
                     </ul>
                     <span class="navbar-nav ms-auto">
                         @if (!User.Identity.IsAuthenticated)

@@ -1,0 +1,31 @@
+@model IList<DocumentViewModel>
+@{
+    ViewData["Title"] = "Documents";
+}
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.ActionLink("Scan New Document", "Scan", "Documents", null, new { @class = "btn btn-primary" })
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Uri</th>
+            <th scope="col">Length</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var document in Model)
+        {
+            <tr>
+                <th scope="row">@document.Id</th>
+                <td>@document.Uri</td>
+                <td>@document.Length</td>
+                <td>
+                    @Html.ActionLink("Print", "Print", new { documentId = document.Id }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

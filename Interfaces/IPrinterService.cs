@@ -1,7 +1,9 @@
+using PrintManager.Models;
+
 namespace PrintManager.Interfaces
 {
     public interface IPrinterService
     {
-        IQueryable<IPrinter> GetAll();
+        Task PrintAsync(int printQueueElementId);
     }
 }

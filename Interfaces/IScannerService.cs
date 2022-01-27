@@ -2,6 +2,6 @@ namespace PrintManager.Interfaces
 {
     public interface IScannerService
     {
-        IQueryable<IScanner> GetAll();
+        public Task ScanAsync(int scannerId);
     }
 }

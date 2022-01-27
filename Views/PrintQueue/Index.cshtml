@@ -1,0 +1,33 @@
+@model IList<PrintQueueElementViewModel>
+@{
+    ViewData["Title"] = "Documents";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">DocumentId</th>
+            <th scope="col">PrinterId</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var element in Model)
+        {
+            <tr>
+                <th scope="row">@element.Id</th>
+                <td>@element.DocumentId</td>
+                <td>@element.PrinterId</td>
+                <td>@element.Status</td>
+                <td>
+                    @if (element.Status ==
+                   PrintManager.Enums.Status.Queued || element.Status == PrintManager.Enums.Status.InProgress)
+                    {
+                        @Html.ActionLink("Cancel", "Cancel", new { id = element.Id }, new { @class = "btn btn-danger" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

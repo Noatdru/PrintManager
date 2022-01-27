@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PrintManager.DbContexts;
 using PrintManager.Interfaces;
 using PrintManager.Repositories;
+using PrintManager.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -21,6 +22,11 @@ services.AddIdentity<IdentityUser, IdentityRole>()
     .AddDefaultTokenProviders();
 services.AddScoped<IPrinterRepository, PrinterRepository>();
 services.AddScoped<IScannerRepository, ScannerRepository>();
+services.AddScoped<ICopierRepository, CopierRepository>();
+services.AddScoped<IPrintQueueRepository, PrintQueueRepository>();
+services.AddScoped<IDocumentRepository, DocumentRepository>();
+services.AddScoped<IScannerService, ScannerService>();
+services.AddScoped<IPrinterService, PrinterService>();
 
 var app = builder.Build();
 

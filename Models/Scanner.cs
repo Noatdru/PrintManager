@@ -4,9 +4,14 @@ namespace PrintManager.Models
 {
     public class Scanner : Device, IScanner
     {
-        public Task<Document> ScanAsync()
+        public async Task<Document> ScanAsync()
         {
-            throw new NotImplementedException();
+            var randomizer = new Random();
+            await Task.Delay(2000);
+            return new Document
+            {
+                Uri = $"https://picsum.photos/id/{randomizer.Next(999)}/400/600"
+            };
         }
     }
 }

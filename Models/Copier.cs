@@ -14,9 +14,14 @@ namespace PrintManager.Models
             throw new NotImplementedException();
         }
 
-        public Task<Document> ScanAsync()
+        public async Task<Document> ScanAsync()
         {
-            throw new NotImplementedException();
+            var randomizer = new Random();
+            await Task.Delay(3000);
+            return new Document
+            {
+                Uri = $"https://picsum.photos/id/{randomizer.Next(999)}/400/600"
+            };
         }
 
     }

@@ -24,6 +24,11 @@ namespace PrintManager.Repositories
             return _context.Scanners;
         }
 
+        public Scanner GetById(int scannerId)
+        {
+            return _context.Scanners.FirstOrDefault(p => p.Id == scannerId);
+        }
+
         public bool Save(Scanner scanner)
         {
             if (scanner.Id == 0)

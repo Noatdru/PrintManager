@@ -1,0 +1,11 @@
+@model PrintDocumentViewModel
+@Html.ValidationSummary()
+@using (Html.BeginForm("Print", "Documents", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+{
+    @Html.HiddenFor(model => model.DocumentId)
+    @Html.LabelFor(model=>model.DeviceId, new { @class = "col-sm-2 control-label" })
+    @Html.DropDownListFor(model => model.DeviceId, new SelectList(Model.Devices, "Id", "Name"),"Please select printer",
+new {
+@class = "form-control" })
+    <input type="submit" value="Print" />
+}

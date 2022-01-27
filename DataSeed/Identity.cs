@@ -10,10 +10,9 @@ namespace PrintManager.DataSeed
         {
             using (var scope = app.ApplicationServices.CreateScope())
             {
-                var userManager = scope
-                .ServiceProvider.GetService(typeof(UserManager<IdentityUser>)) as UserManager<IdentityUser>;
-                IdentityUser user = await
-               userManager.FindByIdAsync(adminUser); if (user == null)
+                var userManager = scope.ServiceProvider.GetService(typeof(UserManager<IdentityUser>)) as UserManager<IdentityUser>;
+                IdentityUser user = await userManager.FindByIdAsync(adminUser);
+                if (user == null)
                 {
                     user = new IdentityUser(adminUser);
                     await userManager.CreateAsync(user, adminPassword);

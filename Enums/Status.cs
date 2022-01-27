@@ -5,6 +5,6 @@ namespace PrintManager.Enums
         Queued,
         InProgress,
         Completed,
-        Cancelled
+        Canceled
     }
 }

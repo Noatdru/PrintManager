@@ -1,0 +1,10 @@
+@model ScanDocumentViewModel
+@Html.ValidationSummary()
+@using (Html.BeginForm("Scan", "Documents", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
+{
+    @Html.LabelFor(model=>model.ScannerId, new { @class = "col-sm-2 control-label" })
+    @Html.DropDownListFor(model => model.ScannerId, new SelectList(Model.Scanners, "Id", "Name"),"Please select scanner",
+new {
+@class = "form-control" })
+    <input type="submit" value="Scan" />
+}
