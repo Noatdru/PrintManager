@@ -6,7 +6,7 @@ namespace PrintManager.Models
     {
         public async Task PrintAsync(Document document)
         {
-            Console.WriteLine($"Printing document {document.Uri}");
+            Console.WriteLine($"Printing document {document?.Uri}");
         }
 
     }
