@@ -9,5 +9,6 @@ namespace PrintManager.Models
         public virtual Document Document { get; set; }
         public Status Status { get; set; }
         public int PrinterId { get; set; }
+        public virtual Device Printer { get; set; }
     }
 }
