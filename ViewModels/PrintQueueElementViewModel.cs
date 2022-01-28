@@ -12,6 +12,7 @@ namespace PrintManager.ViewModels
 
         internal static PrintQueueElementViewModel FromPrintQueueElement(PrintQueueElement printQueueElement)
         {
+            if (printQueueElement is null) throw new ArgumentNullException(nameof(printQueueElement));
             return new PrintQueueElementViewModel
             {
                 DocumentId = printQueueElement.DocumentId,

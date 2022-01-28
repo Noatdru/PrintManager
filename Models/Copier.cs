@@ -6,7 +6,8 @@ namespace PrintManager.Models
     {
         public Task PrintAsync(Document document)
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Printing document {document?.Uri}");
+            return Task.CompletedTask;
         }
 
         public Task CopyAsync()
