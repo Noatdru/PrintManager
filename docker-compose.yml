@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  app:
+    image: printmanager:latest
+    depends_on:
+      - db
+    ports:
+      - '8080:80'
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-CU14-ubuntu-20.04
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=P4??word??

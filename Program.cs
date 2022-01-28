@@ -62,5 +62,6 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 PrintManager.DataSeed.Identity.EnsurePopulated(app);
+PrintManager.DataSeed.Application.EnsurePopulated(app);
 
 app.Run();
